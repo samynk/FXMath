@@ -1,7 +1,5 @@
 package dae.math.script.values;
 
-import dae.math.script.FormulaOptions;
-import dae.math.script.format.MathFormat;
 import dae.math.script.ScriptValueClass;
 import dae.math.script.specops.IBoolean1Value;
 

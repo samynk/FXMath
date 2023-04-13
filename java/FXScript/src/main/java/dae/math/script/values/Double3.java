@@ -210,11 +210,6 @@ public class Double3 extends ConstantScriptValue implements IMatrix, I3DValue {
     }
 
     @Override
-    public ScriptValueClass getValueClass() {
-        return ScriptValueClass.UNDETERMINED;
-    }
-
-    @Override
     public double norm() {
         return Math.sqrt(x * x + y * y + z * z);
     }

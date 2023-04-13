@@ -21,7 +21,7 @@ public interface ICalc {
     
     /**
      * Returns the visibility state of this ICalc node.
-     * The default is not visible.
+     * The default is visible.
      * @return true if the backing value of this ICalc object is visible, false otherwise.
      */
     default public boolean isVisible(){

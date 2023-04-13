@@ -6,15 +6,6 @@ package dae.math.script;
  */
 public interface ScriptValue {
     /**
-     * Calculate the result of this script value.
-     *
-     * @return the result of the calculation
-     */
-    /*
-    public ScriptValue calculate();
-    */
-
-    /**
      * Sets a caption for this script value for use in formulas.
      *
      * @param caption the caption.
@@ -48,7 +39,9 @@ public interface ScriptValue {
      *
      * @return the value class.
      */
-    public ScriptValueClass getValueClass();
+    public default ScriptValueClass getValueClass(){
+        return ScriptValueClass.UNDETERMINED;
+    }
 
 
     public default boolean isLiteral() {

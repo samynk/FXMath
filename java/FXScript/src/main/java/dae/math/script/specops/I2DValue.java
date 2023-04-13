@@ -4,8 +4,6 @@
  */
 package dae.math.script.specops;
 
-import dae.math.script.FormulaOptions;
-
 /**
  *
  * @author Koen Samyn <samyn.koen@gmail.com>

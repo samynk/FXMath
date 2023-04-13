@@ -20,9 +20,13 @@ public class Double2 extends ConstantScriptValue implements IMatrix, I2DValue {
     }
 
     public Double2(double x, double y) {
+        this(x, y, 0);
+    }
+
+    public Double2(double x, double y, double w) {
         this.x = x;
         this.y = y;
-        this.w = 0;
+        this.w = w;
     }
 
     @Override
@@ -34,7 +38,7 @@ public class Double2 extends ConstantScriptValue implements IMatrix, I2DValue {
     public double y() {
         return y;
     }
-    
+
     @Override
     public double w() {
         return w;
@@ -58,11 +62,6 @@ public class Double2 extends ConstantScriptValue implements IMatrix, I2DValue {
 
     public double distance(double x, double y) {
         return Math.hypot(this.x - x, this.y - y);
-    }
-
-    @Override
-    public String toString() {
-        return "(" + x + "," + y + ")";
     }
 
     @Override
@@ -107,11 +106,6 @@ public class Double2 extends ConstantScriptValue implements IMatrix, I2DValue {
     }
 
     @Override
-    public ScriptValueClass getValueClass() {
-        return ScriptValueClass.UNDETERMINED;
-    }
-
-    @Override
     public void update() {
 
     }
@@ -147,10 +141,17 @@ public class Double2 extends ConstantScriptValue implements IMatrix, I2DValue {
     public void add(Double2 toAdd) {
         this.x += toAdd.x;
         this.y += toAdd.y;
+        this.w += toAdd.w;
+    }
+    
+    public void subtract(Double2 toSubtract){
+        this.x -= toSubtract.x;
+        this.y -= toSubtract.y;
+        this.w -= toSubtract.w;
     }
 
     public double angleBetween(Double2 v2) {
-        double d = this.dot(v2);
+        double d = this.dot(v2)/(this.norm()*v2.norm());
         double a = Math.acos(d);
 
         double s = this.x * v2.y - this.y * v2.x;
@@ -160,5 +161,8 @@ public class Double2 extends ConstantScriptValue implements IMatrix, I2DValue {
         return a;
     }
 
-    
+    @Override
+    public String toString() {
+        return "(" + x + "," + y + ")";
+    }
 }
